@@ -32,21 +32,23 @@ namespace Physalis.Framework
         }
         #endregion
 
-        #region --- Singleton ---
-        public static readonly Starter Instance = new Starter();
-        #endregion
-        
         private Starter()
 		{
 		}
 
         /// <summary>
-        /// Start Physalis here.
+        /// Start Physalis here and loads the bundles provided in the given list. If an exception occurs
+        /// when loading a bundle from this list, the startup procedure is immediately stopped.
+        /// <paramref name="initials">List of the initials assemblies to be started now. These bundles
+        /// are started in the exact order of this list, starting from the 0 index to the end of the list.
+        /// Each bundle is installed then started.</paramref>
         /// </summary>
-        public static void Start()
+        public static void Start(string[] initials)
         {
-            TracesOutputProvider.TracesOutput.OutputTrace("Physalis is starting...\n");
-            TracesOutputProvider.TracesOutput.OutputTrace(String.Format("Physalis framework, version {0}\nCopyright 2004 Physalis. All Rights Reserved.\nSee http://physalis.berlios.de for more information.\n", Version));
+            TracesProvider.TracesOutput.OutputTrace("Physalis is starting...\n");
+            TracesProvider.TracesOutput.OutputTrace(String.Format("Physalis framework, version {0}\nCopyright 2004 Physalis. All Rights Reserved.\nSee http://physalis.berlios.de for more information.\n", Version));
+
+            Framework.Instance.Start(initials);
         }
 
         static public void Shutdown(int exitcode)

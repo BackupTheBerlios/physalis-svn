@@ -13,11 +13,11 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            TracesOutputProvider.Initialize(new TraceOutput("139.10.85.145", 6666));
+            TracesProvider.Initialize(new TraceOutput("139.10.85.145", 6666));
 
             Starter.Start();
 
-            TracesOutputProvider.TracesOutput.OutputTrace("End");
+            TracesProvider.TracesOutput.OutputTrace("End");
         }
     }
 }

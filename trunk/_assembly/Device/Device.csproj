@@ -58,14 +58,23 @@
     <Compile Include="..\AssemblyInfo.cs">
       <Link>AssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="..\BundleActivatorAttribute.cs">
+      <Link>BundleActivatorAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Framework.cs">
+      <Link>Framework.cs</Link>
+    </Compile>
+    <Compile Include="..\IBundleActivator.cs">
+      <Link>IBundleActivator.cs</Link>
+    </Compile>
     <Compile Include="..\ITracesOutput.cs">
       <Link>ITracesOutput.cs</Link>
     </Compile>
     <Compile Include="..\Starter.cs">
       <Link>Starter.cs</Link>
     </Compile>
-    <Compile Include="..\TracesOutputProvider.cs">
-      <Link>TracesOutputProvider.cs</Link>
+    <Compile Include="..\TracesProvider.cs">
+      <Link>TracesProvider.cs</Link>
     </Compile>
     <Compile Include="Properties\Resources.cs">
       <AutoGen>True</AutoGen>

@@ -5,11 +5,11 @@ namespace Physalis.Utils
 	/// <summary>
 	/// Used to access the ITraceOutput object.
 	/// </summary>
-    public class TracesOutputProvider
+    public class TracesProvider
     {
         private static ITracesOutput output;
 
-        private TracesOutputProvider()
+        private TracesProvider()
         {
         }
         
