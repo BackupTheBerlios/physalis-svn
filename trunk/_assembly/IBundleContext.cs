@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 
 namespace Physalis.Specs.Framework
 {
@@ -39,5 +40,12 @@ namespace Physalis.Specs.Framework
         /// <param name="id">The ID of the IBundle to be retrieved.</param>
         /// <returns>The IBundle object associated with the given ID.</returns>
         IBundle GetBundle(Int32 id);
+
+        /// <summary>
+        /// Return a file object pointing to the given file name in the bundle dedicated persistent storage.
+        /// </summary>
+        /// <param name="name">The file name</param>
+        /// <returns>The file object</returns>
+        FileInfo GetDataFile(string name);
     }
 }
