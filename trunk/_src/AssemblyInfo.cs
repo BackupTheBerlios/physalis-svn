@@ -11,9 +11,9 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyTitle("Physalis")]
 [assembly: AssemblyDescription("Physalis is an implementation of the OSGi framework for the .NET Compact Framework")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Physalis team")]
 [assembly: AssemblyProduct("Physalis")]
-[assembly: AssemblyCopyright("Romu")]
+[assembly: AssemblyCopyright("Physalis team (c) 2004")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]		
 
@@ -30,7 +30,7 @@ using System.Runtime.CompilerServices;
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
 
-[assembly: AssemblyVersion("1.0.*")]
+[assembly: AssemblyVersion("0.0.1")]
 
 //
 // In order to sign your assembly you must specify a key to use. Refer to the 
@@ -51,5 +51,5 @@ using System.Runtime.CompilerServices;
 //       documentation for more information on this.
 //
 [assembly: AssemblyDelaySign(false)]
-[assembly: AssemblyKeyFile("")]
+[assembly: AssemblyKeyFile(@"..\..\Physalis.keys")]
 [assembly: AssemblyKeyName("")]
