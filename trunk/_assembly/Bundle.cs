@@ -50,7 +50,7 @@ namespace Physalis.Framework
             {
                 if(context == null)
                 {
-                    context = new BundleContext(this);
+                    context = new BundleContext(this, this.storage);
                 }
 
                 return context;
@@ -85,13 +85,6 @@ namespace Physalis.Framework
             set
             {
                 this.assembly = value;
-            }
-        }
-        internal DirectoryInfo Storage
-        {
-            get
-            {
-                return storage;
             }
         }
         #endregion
@@ -129,6 +122,7 @@ namespace Physalis.Framework
 
                 activator.Start(this.Context);
                 this.state = BundleState.Active;
+                EventManager.OnBundleChanged(new BundleEventArgs(BundleTransition.Started, this));
             }
             catch(Exception e)
             {
@@ -158,12 +152,14 @@ namespace Physalis.Framework
             }
 
             this.state = BundleState.Installed;
+            EventManager.OnBundleChanged(new BundleEventArgs(BundleTransition.Stopped, this));
         }
 
         public void Uninstall()
         {
             TracesProvider.TracesOutput.OutputTrace("Not implemented, can't unload an assembly");
             this.state = BundleState.Uninstalled;
+            EventManager.OnBundleChanged(new BundleEventArgs(BundleTransition.Uninstalled, this));
         }
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using System.IO;
 using System.Reflection;
 using Physalis.Specs.Framework;
@@ -46,10 +47,6 @@ namespace Physalis.Framework
         }
         #endregion
 
-        private Framework()
-		{
-        }
-
         public void Start(string initial)
 		{
             TracesProvider.TracesOutput.OutputTrace("Physalis framework cache: " + cache.FullName);
@@ -83,6 +80,10 @@ namespace Physalis.Framework
             DirectoryInfo folder = new DirectoryInfo(cache.FullName + Path.DirectorySeparatorChar + BUNDLE_ROOT + bundles.Count);
 
             IBundle bundle = bundles.Add(location, folder);
+            if(bundle.State == BundleState.Installed)
+            {
+                EventManager.OnBundleChanged(new BundleEventArgs(BundleTransition.Installed, bundle));
+            }
             return bundle;
         }
     }

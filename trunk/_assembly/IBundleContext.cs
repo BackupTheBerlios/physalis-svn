@@ -43,9 +43,16 @@ namespace Physalis.Specs.Framework
 
         /// <summary>
         /// Return a file object pointing to the given file name in the bundle dedicated persistent storage.
+        /// If the given name is " ", the returned object is a DirectoryInfo pointing to the bundle storage root
+        /// folder.
         /// </summary>
         /// <param name="name">The file name</param>
         /// <returns>The file object</returns>
-        FileInfo GetDataFile(string name);
+        FileSystemInfo GetDataFile(string name);
+
+        /// <summary>
+        /// Event raised when a bundle transition occurs.
+        /// </summary>
+        event BundleEventHandler BundleEvent;
     }
 }

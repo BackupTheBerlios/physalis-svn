@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using System.IO;
 using Physalis.Specs.Framework;
 
@@ -11,6 +12,7 @@ namespace Physalis.Framework
     {
         #region --- Fields ---
         private IBundle bundle;
+        private DirectoryInfo storage;
         #endregion
 
         #region --- Properties ---
@@ -30,16 +32,28 @@ namespace Physalis.Framework
                 return bundles;
             }
         }
+        public event BundleEventHandler BundleEvent
+        {
+            add
+            {
+                EventManager.BundleEvent += value;
+            }
+            remove
+            {
+                EventManager.BundleEvent -= value;
+            }
+        }
         #endregion
 
-        public BundleContext(IBundle bundle)
+        internal BundleContext(IBundle bundle, DirectoryInfo storage)
         {
             this.bundle = bundle;
+            this.storage = storage;
         }
 
         public IBundle Install(string location)
         {
-            return Framework.Instance.Bundles.Add(location);
+            return Framework.Instance.Install(location);
         }
 
         public IBundle GetBundle(Int32 id)
@@ -47,10 +61,29 @@ namespace Physalis.Framework
             return Framework.Instance.Bundles[id];
         }
 
-        public FileInfo GetDataFile(string name)
+        public FileSystemInfo GetDataFile(string name)
         {
-            // Not implemented yet
-            return null;
+            if(bundle.State == BundleState.Installed)
+            {
+                throw new InvalidOperationException("The bundle has stopped");
+            }
+            
+            if(name.Equals(" "))
+            {
+                return storage;
+            }
+            else
+            {
+                string path = storage.FullName;
+                if(!name.StartsWith(Path.DirectorySeparatorChar.ToString()))
+                {
+                    path += Path.DirectorySeparatorChar;
+                }
+
+                path += name;
+
+                return new FileInfo(path);
+            }
         }
     }
 }

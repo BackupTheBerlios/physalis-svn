@@ -67,6 +67,9 @@
     <Compile Include="..\BundleContext.cs">
       <Link>BundleContext.cs</Link>
     </Compile>
+    <Compile Include="..\BundleEventArgs.cs">
+      <Link>BundleEventArgs.cs</Link>
+    </Compile>
     <Compile Include="..\BundleException.cs">
       <Link>BundleException.cs</Link>
     </Compile>
@@ -75,6 +78,12 @@
     </Compile>
     <Compile Include="..\BundleState.cs">
       <Link>BundleState.cs</Link>
+    </Compile>
+    <Compile Include="..\BundleTransition.cs">
+      <Link>BundleTransition.cs</Link>
+    </Compile>
+    <Compile Include="..\EventManager.cs">
+      <Link>EventManager.cs</Link>
     </Compile>
     <Compile Include="..\Framework.cs">
       <Link>Framework.cs</Link>
@@ -99,6 +108,12 @@
     </Compile>
     <Compile Include="..\Service.cs">
       <Link>Service.cs</Link>
+    </Compile>
+    <Compile Include="..\ServiceEventArgs.cs">
+      <Link>ServiceEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\ServiceTransition.cs">
+      <Link>ServiceTransition.cs</Link>
     </Compile>
     <Compile Include="..\Starter.cs">
       <Link>Starter.cs</Link>
