@@ -10,8 +10,8 @@ namespace Physalis.Framework
 	public class Bundle : IBundle
 	{
         #region --- Fields ---
+        protected BundleState theState;
         private Int32 id;
-        private BundleState state;
         private string location;
         private IBundleArchive archive;
         #endregion
@@ -28,13 +28,13 @@ namespace Physalis.Framework
             }
         }
         /// <summary>
-        /// The bundle state
+        /// The bundle theState
         /// </summary>
         public BundleState State
         {
             get
             {
-                return state;
+                return theState;
             }
         }
         /// <summary>
@@ -86,9 +86,9 @@ namespace Physalis.Framework
             this.id = ba.Id;
             this.location = ba.Location;
             this.archive = ba;
-            this.state = BundleState.Installed;
+            this.theState = BundleState.Installed;
 
-            doExportImport();
+//            doExportImport();
 //            FileTree dataRoot = fw.getDataStorage();
 //            if (dataRoot != null) 
 //            {
@@ -134,27 +134,27 @@ namespace Physalis.Framework
 //            }
         }
 
-        public void Start()
+        public virtual void Start()
         {
             // TODO:  Add Bundle.Start implementation
         }
 
-        public void Stop()
+        public virtual void Stop()
         {
             // TODO:  Add Bundle.Stop implementation
         }
 
-        public void Update()
+        public virtual void Update()
         {
             // TODO:  Add Bundle.Update implementation
         }
 
-        void Physalis.Specs.Framework.IBundle.Update(System.IO.Stream inputStream)
+        public virtual void Update(System.IO.Stream input)
         {
             // TODO:  Add Bundle.Physalis.Specs.Framework.IBundle.Update implementation
         }
 
-        public void Uninstall()
+        public virtual void Uninstall()
         {
             // TODO:  Add Bundle.Uninstall implementation
         }
@@ -165,7 +165,7 @@ namespace Physalis.Framework
             return null;
         }
 
-        public bool HasPermission(Object permission)
+        public virtual bool HasPermission(object permission)
         {
             // TODO:  Add Bundle.hasPermission implementation
             return false;
@@ -174,11 +174,11 @@ namespace Physalis.Framework
         #region --- Private methods ---
         private void ProcessExportImport() 
         {
-            bpkgs = new Namespaces(this,
-                archive.getAttribute(Constants.EXPORT_PACKAGE),
-                archive.getAttribute(Constants.IMPORT_PACKAGE),
-                archive.getAttribute(Constants.DYNAMICIMPORT_PACKAGE));
-            bpkgs.registerPackages();
+//            bpkgs = new Namespaces(this,
+//                archive.getAttribute(Constants.EXPORT_PACKAGE),
+//                archive.getAttribute(Constants.IMPORT_PACKAGE),
+//                archive.getAttribute(Constants.DYNAMICIMPORT_PACKAGE));
+//            bpkgs.registerPackages();
         }
         #endregion
     }

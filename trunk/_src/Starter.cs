@@ -19,12 +19,7 @@ namespace Physalis.Framework
 
         #region --- Fields ---
         private IDictionary properties;
-        private ITracesOutput output;
         private Framework framework;
-        #endregion
-
-        #region --- Singleton ---
-        public static readonly Starter Instance = new Starter();
         #endregion
 
         #region --- Properties ---
@@ -51,21 +46,6 @@ namespace Physalis.Framework
         }
         
         /// <summary>
-        /// <see cref="ITracesOutput"/> set to the framework to output Physalis traces.
-        /// </summary>
-        public ITracesOutput Output
-        {
-            get
-            {
-                return output;
-            }
-            set
-            {
-                output = value;
-            }
-        }
-
-        /// <summary>
         /// Return the Physalis framework.
         /// </summary>
         /// <returns>The Physalis framework as string</returns>
@@ -78,7 +58,11 @@ namespace Physalis.Framework
         }
         #endregion
 
-        private Starter()
+        #region --- Singleton ---
+        public static readonly Starter Instance = new Starter();
+        #endregion
+        
+        public Starter()
 		{
 		}
 
@@ -87,10 +71,10 @@ namespace Physalis.Framework
         /// </summary>
         public void Start()
         {
-            output.OutputTrace("Physalis is starting...\n");
-            output.OutputTrace(String.Format("Physalis framework, version {0}\nCopyright 2004 Physalis. All Rights Reserved.\nSee http://physalis.berlios.de for more information.\n", Version));
+            TracesOutputProvider.TracesOutput.OutputTrace("Physalis is starting...\n");
+            TracesOutputProvider.TracesOutput.OutputTrace(String.Format("Physalis framework, version {0}\nCopyright 2004 Physalis. All Rights Reserved.\nSee http://physalis.berlios.de for more information.\n", Version));
 
-            output.OutputTrace("Process configuration file...\n");
+            TracesOutputProvider.TracesOutput.OutputTrace("Process configuration file...\n");
             
             InitializeProperties();
 
@@ -101,8 +85,8 @@ namespace Physalis.Framework
             }
             catch(Exception e)
             {
-                output.OutputTrace("Error while initializing the Physalis framework.");
-                output.OutputTrace(e.Message);
+                TracesOutputProvider.TracesOutput.OutputTrace("Error while initializing the Physalis framework.");
+                TracesOutputProvider.TracesOutput.OutputTrace(e.Message);
             }
         }
 
@@ -119,7 +103,7 @@ namespace Physalis.Framework
                 + Path.DirectorySeparatorChar + cache;
 
 #if DEBUG
-            Starter.Instance.Output.OutputTrace("Cache initialization: " + path);
+            TracesOutputProvider.TracesOutput.OutputTrace("Cache initialization: " + path);
 #endif 
             
             DirectoryInfo folder = new DirectoryInfo(path);
@@ -138,6 +122,68 @@ namespace Physalis.Framework
         {
             properties = new ListDictionary();
             properties.Add(PHYSALIS_DIR_PROP, PHYSALIS_DIR_DEF);
+        }
+
+        static public void Shutdown(int exitcode)
+        {
+//            framework.checkAdminPermission();
+//            AccessController.doPrivileged(new PrivilegedAction() {
+//	        public Object run() {
+//	        Thread t = new Thread() {
+//	            public void run() {
+//		        if (bootMgr != 0) {
+//		        try {
+//		            framework.stopBundle(bootMgr);
+//		        } catch (BundleException e) {
+//		            System.err.println("Stop of BootManager failed, " +
+//				            e.getNestedException());
+//		        }
+//		        }
+//		        framework.shutdown();
+//		        System.exit(exitcode);
+//	            }
+//	            };
+//	        t.setDaemon(false);
+//	        t.start();
+//	        return null;
+//	        }
+//            });
+        }
+
+        static public void Restart()
+        {
+//            framework.checkAdminPermission();
+
+//            AccessController.doPrivileged(new PrivilegedAction() {
+//	        public Object run() {
+//	        Thread t = new Thread() {
+//	            public void run() {
+//		        if (bootMgr != 0) {
+//		        try {
+//		            framework.stopBundle(bootMgr);
+//		        } catch (BundleException e) {
+//		            System.err.println("Stop of BootManager failed, " +
+//				            e.getNestedException());
+//		        }
+//		        }
+//		        framework.shutdown();
+//
+//		        try {
+//		        if (bootMgr != 0) {
+//		            framework.launch(bootMgr);
+//		        } else {
+//		            framework.launch(0);
+//		        }
+//		        } catch (Exception e) {
+//		        println("Failed to restart framework", 0);
+//		        }
+//	            }
+//	            };
+//	        t.setDaemon(false);
+//	        t.start();
+//	        return null;
+//	        }
+//            });
         }
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using Physalis.Framework;
+using Physalis.Utils;
 
 
 namespace Start
@@ -14,11 +15,11 @@ namespace Start
 		/// </summary>
 		static void Main(string[] args)
 		{
-            Starter.Instance.Output = new TraceOutput("192.168.5.2", 6666);
+            TracesOutputProvider.TracesOutput = new TraceOutput("192.168.0.2", 6666);
 
             Starter.Instance.Start();
 
-            Starter.Instance.Output.OutputTrace("End");
+            TracesOutputProvider.TracesOutput.OutputTrace("End");
         }
 	}
 }

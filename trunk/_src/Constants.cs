@@ -48,7 +48,6 @@ namespace Physalis.Specs.Framework
 
         public static readonly string SERVICE_DESCRIPTION = "service.description";
 
-        public static readonly string SYSTEM_BUNDLE_LOCATION = "System Bundle";
     
         // Replaced by AssemblyName
 //        public static readonly string BUNDLE_NAME = "Bundle-Name";
@@ -65,6 +64,7 @@ namespace Physalis.Specs.Framework
 
         public static readonly string FRAMEWORK_PROCESSOR = "Physalis.Framework.Processor";
 
+        public static readonly string SYSTEM_BUNDLE_LOCATION = "Physalis System Bundle";
     }
 }
 

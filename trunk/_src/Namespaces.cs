@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Physalis.Utils;
 
 namespace Physalis.Framework
 {
@@ -33,7 +34,7 @@ namespace Physalis.Framework
                     }
                     p.AddExporter(pe);
 #if DEBUG
-                    Starter.Instance.Output.OutputTrace("registerPackages: export, " + pe);
+                    TracesOutputProvider.TracesOutput.OutputTrace("registerPackages: export, " + pe);
 #endif
                 }
 
@@ -48,7 +49,7 @@ namespace Physalis.Framework
                     }
                     p.AddImporter(pe);
 #if DEBUG
-                    Starter.Instance.Output.OutputTrace("registerPackages: import, " + pe);
+                    TracesOutputProvider.TracesOutput.OutputTrace("registerPackages: import, " + pe);
 #endif
                 }
             }
@@ -59,7 +60,7 @@ namespace Physalis.Framework
             lock(namespaces)
             {
 #if DEBUG
-                Starter.Instance.Output.OutputTrace("dynamicImportPackage: try " + pe);
+                TracesOutputProvider.TracesOutput.OutputTrace("dynamicImportPackage: try " + pe);
 #endif
 
                 Namespace p = (Namespace) namespaces[pe.Name];
@@ -67,7 +68,7 @@ namespace Physalis.Framework
                 {
                     p.AddImporter(pe);
 #if DEBUG
-                    Starter.Instance.Output.OutputTrace("dynamicImportPackage: added " + pe);
+                    TracesOutputProvider.TracesOutput.OutputTrace("dynamicImportPackage: added " + pe);
 #endif
                     return p.Provider;
                 }
@@ -87,7 +88,7 @@ namespace Physalis.Framework
                     if(p != null) 
                     {
 #if DEBUG
-                        Starter.Instance.Output.OutputTrace("unregisterPackages: unregister export - " + pe);
+                        TracesOutputProvider.TracesOutput.OutputTrace("unregisterPackages: unregister export - " + pe);
 #endif
                         if(!p.RemoveExporter(pe)) 
                         {
@@ -96,7 +97,7 @@ namespace Physalis.Framework
                                 p.Provider = null;
                                 p.RemoveExporter(pe);
 #if DEBUG
-                                Starter.Instance.Output.OutputTrace("unregisterPackages: forced unregister - " + pe);
+                                TracesOutputProvider.TracesOutput.OutputTrace("unregisterPackages: forced unregister - " + pe);
 #endif
                             } 
                             else 
@@ -104,7 +105,7 @@ namespace Physalis.Framework
                                 allRemoved = false;
                                 p.Zombie = true;
 #if DEBUG
-                                Starter.Instance.Output.OutputTrace("unregisterPackages: failed to unregister - " + pe);
+                                TracesOutputProvider.TracesOutput.OutputTrace("unregisterPackages: failed to unregister - " + pe);
 #endif
                                 continue;
                             }
@@ -126,7 +127,7 @@ namespace Physalis.Framework
                         if (p != null) 
                         {
 #if DEBUG
-                            Starter.Instance.Output.OutputTrace("unregisterPackages: unregister import - " + pe.ToString());
+                            TracesOutputProvider.TracesOutput.OutputTrace("unregisterPackages: unregister import - " + pe.ToString());
 #endif
                             p.RemoveImporter(pe);
                             if (p.IsEmpty) 

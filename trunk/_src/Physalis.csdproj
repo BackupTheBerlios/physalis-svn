@@ -300,6 +300,16 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "SystemBundle.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "TracesOutputProvider.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "Util.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
