@@ -1,9 +1,6 @@
 using System;
 using System.Collections;
 
-// TODO - hasPermission
-// TODO - update(Input Stream)
-
 namespace Physalis.Framework
 {
 	/// <summary>
@@ -100,10 +97,16 @@ namespace Physalis.Framework
 
 		void Update();
 
-		/// <summary>
-		/// Uninstalls this bundle.
+		/// <summary> 
+		/// Updates this bundle from an <tt>InputStream</tt>.
 		/// </summary>
 
+		void Update(System.IO.Stream inputStream);
+
+		/// <summary>
+		/// Uninstalls this bundle.
+		/// </summary>		
+		
 		void Uninstall();
 		
 		/// <summary>
@@ -111,5 +114,11 @@ namespace Physalis.Framework
 		/// </summary>
 		
 		string GetResource(string name);
+
+		/// <summary> 
+		/// Determines if this bundle has the specified permissions.
+		/// </summary>
+		
+		bool hasPermission(System.Object permission);
 	}
 }

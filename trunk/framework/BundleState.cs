@@ -11,36 +11,36 @@ namespace Physalis.Framework
 		/// This bundle is uninstalled and may not be used.
 		/// </summary>
 
-		Uninstalled = 1,
+		Uninstalled = 0x00000001,
         
 		/// <summary>
 		/// This bundle is installed but not yet resolved.
 		/// </summary>
 		
-		Installed = 2,
+		Installed = 0x00000002,
 
 		/// <summary>
 		/// This bundle is resolved and is able to be started.
 		/// </summary>
 
-		Resolved = 4,
+		Resolved = 0x00000004,
         
 		/// <summary>
 		/// This bundle is in the process of starting.
 		/// </summary>
 
-		Starting = 8,
+		Starting = 0x00000008,
         
 		/// <summary>
 		/// This bundle is in the process of stopping.
 		/// </summary>
 
-		Stopping = 16,
+		Stopping = 0x00000010,
         
 		/// <summary>
 		/// This bundle is now running.
 		/// </summary>
 
-		Active = 32
+		Active = 0x00000020
 	}
 }
