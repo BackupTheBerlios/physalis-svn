@@ -1,7 +1,7 @@
 using System;
-using Physalis.Framework;
+using Physalis.Specs.Framework;
 
-namespace Physalis.Service.StartLevel
+namespace Physalis.Specs.Service.StartLevel
 {
 	/// <summary>
 	/// The StartLevel service allows management agents to manage a start level

@@ -1,6 +1,6 @@
 using System;
 
-namespace Physalis.Framework
+namespace Physalis.Specs.Framework
 {
     public sealed class Constants
     {
@@ -48,13 +48,14 @@ namespace Physalis.Framework
 
         public static readonly string SERVICE_DESCRIPTION = "service.description";
 
-    
-        // Validated
-        public static readonly string BUNDLE_NAME = "Bundle-Name";
-
-        public static readonly string EXPORT_NAMESPACE = "Export-Namespace";
-
         public static readonly string SYSTEM_BUNDLE_LOCATION = "System Bundle";
+    
+        // Replaced by AssemblyName
+//        public static readonly string BUNDLE_NAME = "Bundle-Name";
+
+        // Replaced by ExportNamespaceAttribute
+//        public static readonly string EXPORT_NAMESPACE = "Export-Namespace";
+
 
         public static readonly string FRAMEWORK_OS_NAME = "Physalis.Framework.OS.Name";
 

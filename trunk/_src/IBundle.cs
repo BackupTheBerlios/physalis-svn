@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 
-namespace Physalis.Framework
+namespace Physalis.Specs.Framework
 {
 	/// <summary>
 	/// An installed bundle in the Framework.

@@ -1,6 +1,6 @@
 using System;
 
-namespace Physalis.Framework
+namespace Physalis.Specs.Framework
 {
 	/// <summary>
 	/// Customizes the starting and stopping of this bundle.

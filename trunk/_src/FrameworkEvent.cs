@@ -1,6 +1,6 @@
 using System;
 
-namespace Physalis.Framework
+namespace Physalis.Specs.Framework
 {
 	/// <summary>
 	/// A general Framework event.

@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 
-namespace Physalis.Framework
+namespace Physalis.Specs.Framework
 {
 	/// <summary>
 	/// An RFC 1960-based Filter.

@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.IO;
 
-namespace Physalis.Framework
+namespace Physalis.Specs.Framework
 {
 	public delegate void BundleEventHandler(object sender, BundleEventArgs e);
 	public delegate void FrameworkEventHandler(object sender, FrameworkEventArgs e);
