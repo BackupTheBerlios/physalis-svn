@@ -8,7 +8,7 @@ namespace Physalis.Specs.Framework
 /// </summary>
 	public interface IBundleActivator
 	{
-		void Start();
-		void Stop();
-	}
+		void Start(IBundleContext context);
+        void Stop(IBundleContext context);
+    }
 }

@@ -15,6 +15,7 @@ namespace Physalis.Framework
         private BundleState state;
         private Int32 id;
         private Assembly assembly;
+        private IBundleContext context;
         #endregion
 
         #region --- Properties ---
@@ -41,36 +42,18 @@ namespace Physalis.Framework
                 return assembly.GetName().CodeBase;
             }
         }
-        #endregion
 
-        internal Assembly Assembly
+        private IBundleContext Context
         {
             get
             {
-                return assembly;
-            }
-            set
-            {
-                this.assembly = value;
-            }
-        }
+                if(context == null)
+                {
+                    context = new BundleContext(this);
+                }
 
-        internal Bundle(Int32 id, string location)
-        {
-            try
-            {
-                // Build the assembly full path
-                string full = Path.GetFullPath(location);
-                assembly = Assembly.LoadFrom(full);
+                return context;
             }
-            catch (Exception e)
-            {
-                TracesProvider.TracesOutput.OutputTrace(e.Message);
-                throw new BundleException(e.Message, e);
-            }
-
-            this.id = id;
-            this.state = BundleState.Installed;
         }
 
         private IBundleActivator Activator
@@ -92,6 +75,36 @@ namespace Physalis.Framework
                 }
             }
         }
+        internal Assembly Assembly
+        {
+            get
+            {
+                return assembly;
+            }
+            set
+            {
+                this.assembly = value;
+            }
+        }
+        #endregion
+
+        internal Bundle(Int32 id, string location)
+        {
+            try
+            {
+                // Build the assembly full path
+                string full = Path.GetFullPath(location);
+                assembly = Assembly.LoadFrom(full);
+            }
+            catch (Exception e)
+            {
+                TracesProvider.TracesOutput.OutputTrace(e.Message);
+                throw new BundleException(e.Message, e);
+            }
+
+            this.id = id;
+            this.state = BundleState.Installed;
+        }
 
         public void Start()
         {
@@ -105,7 +118,7 @@ namespace Physalis.Framework
                     throw new Exception("No activator for: " + this.Location);
                 }
 
-                activator.Start();
+                activator.Start(this.Context);
                 this.state = BundleState.Active;
             }
             catch(Exception e)
@@ -127,7 +140,7 @@ namespace Physalis.Framework
                     throw new Exception("No activator for: " + this.Location);
                 }
 
-                activator.Stop();
+                activator.Stop(this.Context);
             }
             catch (Exception e)
             {

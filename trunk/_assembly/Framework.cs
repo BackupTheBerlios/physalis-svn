@@ -20,7 +20,17 @@ namespace Physalis.Framework
 		public static readonly Framework Instance = new Framework();
 		#endregion
 
-		private Framework()
+        #region --- Properties ---
+        internal Bundles Bundles
+        {
+            get
+            {
+                return bundles;
+            }
+        }
+        #endregion
+
+        private Framework()
 		{
         }
 

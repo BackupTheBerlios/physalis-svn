@@ -64,6 +64,9 @@
     <Compile Include="..\BundleActivatorAttribute.cs">
       <Link>BundleActivatorAttribute.cs</Link>
     </Compile>
+    <Compile Include="..\BundleContext.cs">
+      <Link>BundleContext.cs</Link>
+    </Compile>
     <Compile Include="..\BundleException.cs">
       <Link>BundleException.cs</Link>
     </Compile>
@@ -91,6 +94,7 @@
     <Compile Include="..\TracesProvider.cs">
       <Link>TracesProvider.cs</Link>
     </Compile>
+    <Compile Include="IBundleContext.cs" />
     <Compile Include="Properties\Resources.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

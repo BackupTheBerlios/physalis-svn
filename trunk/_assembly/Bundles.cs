@@ -32,6 +32,13 @@ namespace Physalis.Framework
                 return (IBundle) bundles[id];
             }
         }
+        internal ICollection All
+        {
+            get
+            {
+                return bundles.Values;
+            }
+        }
         #endregion
 
         public Bundles()

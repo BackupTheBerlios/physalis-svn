@@ -17,14 +17,18 @@ namespace Bundle
 
         }
 
-        public void Start()
+        public void Start(IBundleContext context)
         {
             TracesProvider.TracesOutput.OutputTrace("The bundle is starting");
+            TracesProvider.TracesOutput.OutputTrace("Id=" + context.Bundle.Id);
+            TracesProvider.TracesOutput.OutputTrace("State=" + context.Bundle.State);
         }
 
-        public void Stop()
+        public void Stop(IBundleContext context)
         {
             TracesProvider.TracesOutput.OutputTrace("The bundle is stopping");
+            TracesProvider.TracesOutput.OutputTrace("Id=" + context.Bundle.Id);
+            TracesProvider.TracesOutput.OutputTrace("State=" + context.Bundle.State);
         }
     }
 }
