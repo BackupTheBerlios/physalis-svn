@@ -2,14 +2,16 @@ using System;
 using System.Collections;
 using System.IO;
 
-namespace Physalis.Specs
+namespace Physalis.Framework
 {
     public delegate void BundleEventHandler(object sender, BundleEventArgs e);
     public delegate void FrameworkEventHandler(object sender, FrameworkEventArgs e);
     public delegate void ServiceEventHandler(object sender, ServiceEventArgs e);
     
     /// <summary>
-	/// See <see cref="org.osgi.framework.BundleContext"/>.
+	/// A bundle's execution context within the Framework. 
+	/// The context is used to grant access to other methods 
+	/// so that this bundle can interact with the Framework.
 	/// </summary>
 	public interface IBundleContext
 	{

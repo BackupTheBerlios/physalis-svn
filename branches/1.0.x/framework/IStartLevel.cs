@@ -1,6 +1,6 @@
 using System;
 
-namespace Physalis.Specs.Service.StartLevel
+namespace Physalis.Service.StartLevel
 {
 	/// <summary>
 	/// The StartLevel service allows management agents to manage a start level

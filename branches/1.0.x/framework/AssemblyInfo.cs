@@ -9,9 +9,9 @@ using System.Runtime.CompilerServices;
 //
 
 [assembly: AssemblyTitle("Physalis")]
-[assembly: AssemblyDescription("Physalis is an implementation of the OSGi framework for the .NET [Compact9] Framework")]
+[assembly: AssemblyDescription("Physalis is an implementation of the OSGi framework for the .NET [Compact] Framework")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("physalis.berlios.de")]
 [assembly: AssemblyProduct("Physalis")]
 [assembly: AssemblyCopyright("Romu")]
 [assembly: AssemblyTrademark("")]

@@ -1,8 +1,12 @@
 using System;
 
-namespace Physalis.Specs
+namespace Physalis.Framework
 {
-    public sealed class Constants
+	/// <summary>
+	/// Defines standard names for the OSGi environment property, service property, 
+	/// and Manifest header attribute keys.
+	/// </summary>
+	public sealed class Constants
     {
         public static readonly string BUNDLE_CATEGORY = "Bundle-Category";
 
@@ -56,13 +60,13 @@ namespace Physalis.Specs
 
         public static readonly string SYSTEM_BUNDLE_LOCATION = "System Bundle";
 
-        public static readonly string FRAMEWORK_OS_NAME = "Physalis.Specs.OS.Name";
+        public static readonly string FRAMEWORK_OS_NAME = "Physalis.Framework.OS.Name";
 
-        public static readonly string FRAMEWORK_OS_VERSION = "Physalis.Specs.OS.Version";
+        public static readonly string FRAMEWORK_OS_VERSION = "Physalis.Framework.OS.Version";
 
-        public static readonly string FRAMEWORK_CLR_VERSION = "Physalis.Specs.CLR.Version";
+        public static readonly string FRAMEWORK_CLR_VERSION = "Physalis.Framework.CLR.Version";
 
-        public static readonly string FRAMEWORK_PROCESSOR = "Physalis.Specs.Processor";
+        public static readonly string FRAMEWORK_PROCESSOR = "Physalis.Framework.Processor";
 
     }
 }

@@ -1,6 +1,6 @@
 using System;
 
-namespace Physalis.Specs
+namespace Physalis.Framework
 {
 	/// <summary>
 	/// See <see cref="org.osgi.framework.ServiceFactory"/>
