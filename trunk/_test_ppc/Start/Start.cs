@@ -14,7 +14,7 @@ namespace Start
 		/// </summary>
 		static void Main(string[] args)
 		{
-            Starter.Instance.Output = new TraceOutput("192.168.0.2", 6666);
+            Starter.Instance.Output = new TraceOutput("192.168.5.2", 6666);
 
             Starter.Instance.Start();
 
