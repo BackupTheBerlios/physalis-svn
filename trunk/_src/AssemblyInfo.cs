@@ -9,7 +9,7 @@ using System.Runtime.CompilerServices;
 //
 
 [assembly: AssemblyTitle("Physalis")]
-[assembly: AssemblyDescription("Physalis is an implementation of the OSGi framework for the .Net Compact Framework")]
+[assembly: AssemblyDescription("Physalis is an implementation of the OSGi framework for the .NET Compact Framework")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Physalis")]

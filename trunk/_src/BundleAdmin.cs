@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.IO;
-using Physalis.Specs;
+using Physalis.Framework;
 
 namespace Physalis
 {

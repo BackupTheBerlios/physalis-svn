@@ -1,5 +1,5 @@
 using System;
-using Physalis.Specs.Service.StartLevel;
+using Physalis.Service.StartLevel;
 
 namespace Physalis
 {
@@ -9,7 +9,7 @@ namespace Physalis
 	public class StartLevel : IStartLevel
 	{
         #region --- Constants ---
-        internal static readonly string NAMESPACE_NAME = "Physalis.Specs.Service.StartLevel";
+        internal static readonly string NAMESPACE_NAME = "Physalis.Service.StartLevel";
         internal static readonly string NAMESPACE_VERSION = "0.1";
         internal static readonly Int32 SYSTEM_BUNDLE_START_LEVEL = 0;
         #endregion
@@ -22,16 +22,16 @@ namespace Physalis
         }
 
         #region ---IStartLevel Members
-        Int32 Physalis.Specs.Service.StartLevel.IStartLevel.StartLevel
+        Int32 Physalis.Service.StartLevel.IStartLevel.StartLevel
         {
             get
             {
-                // TODO:  Add StartLevel.Physalis.Specs.Service.StartLevel.IStartLevel.StartLevel getter implementation
+                // TODO:  Add StartLevel.Physalis.Service.StartLevel.IStartLevel.StartLevel getter implementation
                 return new Int32 ();
             }
             set
             {
-                // TODO:  Add StartLevel.Physalis.Specs.Service.StartLevel.IStartLevel.StartLevel setter implementation
+                // TODO:  Add StartLevel.Physalis.Service.StartLevel.IStartLevel.StartLevel setter implementation
             }
         }
 
@@ -48,18 +48,18 @@ namespace Physalis
             }
         }
 
-        public Int32 GetBundleStartLevel(Physalis.Specs.IBundle bundle)
+        public Int32 GetBundleStartLevel(Physalis.Framework.IBundle bundle)
         {
             // TODO:  Add StartLevel.GetBundleStartLevel implementation
             return new Int32 ();
         }
 
-        public void SetBundleStartLevel(Physalis.Specs.IBundle bundle, Int32 startlevel)
+        public void SetBundleStartLevel(Physalis.Framework.IBundle bundle, Int32 startlevel)
         {
             // TODO:  Add StartLevel.SetBundleStartLevel implementation
         }
 
-        public bool IsBundlePersistentlyStarted(Physalis.Specs.IBundle bundle)
+        public bool IsBundlePersistentlyStarted(Physalis.Framework.IBundle bundle)
         {
             // TODO:  Add StartLevel.IsBundlePersistentlyStarted implementation
             return false;

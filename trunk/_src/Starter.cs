@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using System.Reflection;
 using OpenNETCF.Configuration;
-//using Physalis.Specs;
+//using Physalis.Framework;
 
 namespace Physalis
 {

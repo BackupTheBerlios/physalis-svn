@@ -1,5 +1,5 @@
 using System;
-using Physalis.Specs;
+using Physalis.Framework;
 
 namespace Physalis
 {

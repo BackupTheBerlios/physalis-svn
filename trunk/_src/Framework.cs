@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.IO;
 using System.Reflection;
-using Physalis.Specs;
+using Physalis.Framework;
 
 namespace Physalis
 {
@@ -12,7 +12,7 @@ namespace Physalis
     public sealed class Framework
     {
         #region --- Constants ---
-        internal static readonly string NAMESPACE_NAME = "Physalis.Specs";
+        internal static readonly string NAMESPACE_NAME = "Physalis.Framework";
         internal static readonly string NAMESPACE_VERSION = "0.1";
         #endregion
 
