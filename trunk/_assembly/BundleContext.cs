@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Physalis.Specs.Framework;
 
 namespace Physalis.Framework
@@ -44,6 +45,12 @@ namespace Physalis.Framework
         public IBundle GetBundle(Int32 id)
         {
             return Framework.Instance.Bundles[id];
+        }
+
+        public FileInfo GetDataFile(string name)
+        {
+            // Not implemented yet
+            return null;
         }
     }
 }
