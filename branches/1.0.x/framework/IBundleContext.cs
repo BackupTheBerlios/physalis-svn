@@ -15,30 +15,125 @@ namespace Physalis.Framework
 	/// </summary>
 	public interface IBundleContext
 	{
+
+		/// <summary>
+		/// Returns the value of the specified property. 
+		/// If the key is not found in the Framework properties, 
+		/// the system properties are then searched. The method 
+		/// returns <tt>null</tt> if the property is not found.
+		/// </summary>
+
         IProperty Property
         {
             get;
         }
 
-        IBundle Bundle
+		/// <summary>
+		/// Returns the <tt>Bundle</tt> object for this context bundle.
+		/// 
+		/// The context bundle is defined as the bundle that was assigned this 
+		/// <tt>BundleContext</tt> in its <tt>BundleActivator</tt>.
+		/// </summary>
+		
+		IBundle Bundle
         {
             get;
         }
 
+		/// <summary>
+		/// 
+		/// </summary>
+
         IFilter CreateFilter(string filter);
-        IBundle GetBundle(Int32 id);
-        IBundle[] GetBundles();
-        File GetDataFile(string name);
-        object GetService(IServiceReference reference);
-        IServiceReference GetServiceReference(string theClass);
-        IServiceReference[] GetServiceReferences(string theClass, string filter);
-        IBundle InstallBundle(string location, Stream source);
-        IServiceRegistration RegisterService(string theClass, object service, IDictionary properties);
-        IServiceRegistration RegisterService(string[] classes, object service, IDictionary properties);
-        bool UngetService(IServiceReference reference);
+
+		/// <summary>
+		/// Returns the bundle with the specified identifier.
+		/// </summary>
+		
+		IBundle GetBundle(Int32 id);
+        
+		/// <summary>
+		/// Returns a list of all installed bundles. 
+		/// 
+		/// <p>This method returns 
+		/// a list of all bundles installed in the OSGi environment at the 
+		/// time of the call to this method. However, as the Framework is a 
+		/// very dynamic environment, bundles can be installed or uninstalled 
+		/// at anytime.
+		/// </summary>
+		
+		IBundle[] GetBundles();
+        
+		/// <summary>
+		/// 
+		/// </summary>
+		
+		File GetDataFile(string name);
+        
+		/// <summary>
+		/// 
+		/// </summary>
+		
+		object GetService(IServiceReference reference);
+        
+		/// <summary>
+		/// 
+		/// </summary>
+		
+		IServiceReference GetServiceReference(string theClass);
+        
+		/// <summary>
+		/// 
+		/// </summary>
+		
+		IServiceReference[] GetServiceReferences(string theClass, string filter);
+        
+		/// <summary>
+		/// Installs the bundle from the specified <tt>InputStream</tt> object.
+		/// 
+		/// <p>This method performs all of the steps listed in 
+		/// <tt>BundleContext.installBundle(String location)</tt>, except that 
+		/// the bundle's content will be read from the <tt>InputStream</tt> object.
+		/// The location identifier string specified will be used as the identity 
+		/// of the bundle.
+		/// </summary>
+		
+		IBundle InstallBundle(string location, Stream source);
+        
+		/// <summary>
+		/// 
+		/// </summary>
+		
+		IServiceRegistration RegisterService(string theClass, object service, IDictionary properties);
+        
+		/// <summary>
+		/// 
+		/// </summary>
+		
+		IServiceRegistration RegisterService(string[] classes, object service, IDictionary properties);
+        
+		/// <summary>
+		/// 
+		/// </summary>
+
+		bool UngetService(IServiceReference reference);
+
+		/// <summary>
+		/// 
+		/// </summary>
 
         event BundleEventHandler BundleEvent;
-        event FrameworkEventHandler FrameworkEvent;
-        event ServiceEventHandler ServiceEvent;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		
+		event FrameworkEventHandler FrameworkEvent;
+        
+		/// <summary>
+		/// 
+		/// </summary>
+		
+		event ServiceEventHandler ServiceEvent;
     }
 }
