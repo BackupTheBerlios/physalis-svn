@@ -20,6 +20,7 @@ namespace Physalis.Framework
         #region --- Fields ---
         private IDictionary properties;
         private ITracesOutput output;
+        private Framework framework;
         #endregion
 
         #region --- Singleton ---
@@ -63,6 +64,18 @@ namespace Physalis.Framework
                 output = value;
             }
         }
+
+        /// <summary>
+        /// Return the Physalis framework.
+        /// </summary>
+        /// <returns>The Physalis framework as string</returns>
+        public Framework Framework
+        {
+            get
+            {
+                return framework;
+            }
+        }
         #endregion
 
         private Starter()
@@ -84,7 +97,7 @@ namespace Physalis.Framework
             try
             {
                 InitCache((string) this.Properties[PHYSALIS_DIR_PROP]);
-                new Framework();
+                framework = new Framework();
             }
             catch(Exception e)
             {

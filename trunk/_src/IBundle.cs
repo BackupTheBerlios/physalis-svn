@@ -119,6 +119,6 @@ namespace Physalis.Specs.Framework
 		/// Determines if this bundle has the specified permissions.
 		/// </summary>
 		
-		bool hasPermission(System.Object permission);
+		bool HasPermission(System.Object permission);
 	}
 }

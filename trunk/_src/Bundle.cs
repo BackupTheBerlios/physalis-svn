@@ -1,5 +1,6 @@
 using System;
 using Physalis.Specs.Framework;
+using Physalis.Framework.Storage;
 
 namespace Physalis.Framework
 {
@@ -8,41 +9,44 @@ namespace Physalis.Framework
 	/// </summary>
 	public class Bundle : IBundle
 	{
-		public Bundle()
-		{
-			// 
-			// TODO: Add constructor logic here
-			//
-        }
-        #region IBundle Members
+        #region --- Fields ---
+        private Int32 id;
+        private BundleState state;
+        private string location;
+        private IBundleArchive archive;
+        #endregion
 
-        public Physalis.Specs.Framework.BundleState State
-        {
-            get
-            {
-                // TODO:  Add Bundle.State getter implementation
-                return BundleState.Uninstalled;
-            }
-        }
-
+        #region --- Properties ---
+        /// <summary>
+        /// The bundle ID
+        /// </summary>
         public Int32 Id
         {
             get
             {
-                // TODO:  Add Bundle.Id getter implementation
-                return new Int32 ();
+                return id;
             }
         }
-
+        /// <summary>
+        /// The bundle state
+        /// </summary>
+        public BundleState State
+        {
+            get
+            {
+                return state;
+            }
+        }
+        /// <summary>
+        /// The bundle location
+        /// </summary>
         public string Location
         {
             get
             {
-                // TODO:  Add Bundle.Location getter implementation
-                return null;
+                return location;
             }
         }
-
         public System.Collections.IDictionary Headers
         {
             get
@@ -68,6 +72,66 @@ namespace Physalis.Framework
                 // TODO:  Add Bundle.ServicesInUse getter implementation
                 return null;
             }
+        }
+        #endregion
+        
+        public Bundle(Int32 id, string location)
+		{
+            this.id = id;
+            this.location = location;
+        }
+
+        public Bundle(IBundleArchive ba)
+        {
+            this.id = ba.Id;
+            this.location = ba.Location;
+            this.archive = ba;
+            this.state = BundleState.Installed;
+
+            doExportImport();
+//            FileTree dataRoot = fw.getDataStorage();
+//            if (dataRoot != null) 
+//            {
+//                bundleDir = new FileTree(dataRoot, Long.toString(id));
+//            }
+//            ProtectionDomain pd = null;
+//            if (fw.bPermissions) 
+//            {
+//                try 
+//                {
+//                    URL bundleUrl = new URL(BundleURLStreamHandler.PROTOCOL, Long.toString(id), "");
+//                    PermissionCollection pc = fw.permissions.getPermissionCollection(this);
+//                    pd = new ProtectionDomain(new CodeSource(bundleUrl, 
+//                        (java.security.cert.Certificate[])null), 
+//                        pc);
+//                } 
+//                catch (MalformedURLException never) { }
+//            }
+//            protectionDomain = pd;
+//
+//            int oldStartLevel = archive.getStartLevel();
+//
+//            try 
+//            {
+//                if(framework.startLevelService == null) 
+//                {
+//                    archive.setStartLevel(0);
+//                } 
+//                else 
+//                {
+//                    if(oldStartLevel == -1) 
+//                    {
+//                        archive.setStartLevel(framework.startLevelService.getInitialBundleStartLevel());
+//                    } 
+//                    else 
+//                    {
+//                    } 
+//                }
+//            } 
+//            catch (Exception e) 
+//            {
+//                Debug.println("Failed to set start level on #" + getBundleId() + ": " + e);
+//            }
         }
 
         public void Start()
@@ -101,12 +165,21 @@ namespace Physalis.Framework
             return null;
         }
 
-        public bool hasPermission(Object permission)
+        public bool HasPermission(Object permission)
         {
             // TODO:  Add Bundle.hasPermission implementation
             return false;
         }
 
+        #region --- Private methods ---
+        private void ProcessExportImport() 
+        {
+            bpkgs = new Namespaces(this,
+                archive.getAttribute(Constants.EXPORT_PACKAGE),
+                archive.getAttribute(Constants.IMPORT_PACKAGE),
+                archive.getAttribute(Constants.DYNAMICIMPORT_PACKAGE));
+            bpkgs.registerPackages();
+        }
         #endregion
     }
 }

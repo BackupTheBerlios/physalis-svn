@@ -9,15 +9,13 @@ namespace Physalis.Framework
 	public class Namespaces
 	{
         #region --- Fields ---
-        readonly Framework framework;
         private Hashtable namespaces = new Hashtable();
         private ArrayList tempResolved = null;
         private Hashtable tempProvider = null;
         #endregion
 
-        internal Namespaces(Framework framework)
+        internal Namespaces()
 		{
-		    this.framework = framework;
         }
 
         internal void RegisterPackages(IEnumerator exports, IEnumerator imports) 
