@@ -3,9 +3,10 @@
 **  http://developer.berlios.de/projects/physalis/
 ********************************************
 
-  trunk     -   main development trunk
   branches  -   misc development branches
+  http      -   drafts of the homepage
   tags      -   tagged versions
+  trunk     -   main development trunk
 
 You can browse the latest version at
   http://svn.berlios.de/viewcvs/physalis/
