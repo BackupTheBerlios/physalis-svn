@@ -35,6 +35,13 @@ namespace Physalis.Framework
                 return name;
             }
         }
+        internal IBundle Bundle
+        {
+            get
+            {
+                return bundle;
+            }
+        }
         #endregion
         
         #region --- Constructors ---

@@ -19,7 +19,6 @@ namespace Physalis.Framework
 
         #region --- Fields ---
         private IDictionary properties;
-        private Framework framework;
         #endregion
 
         #region --- Properties ---
@@ -42,18 +41,6 @@ namespace Physalis.Framework
             get
             {
                 return Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            }
-        }
-        
-        /// <summary>
-        /// Return the Physalis framework.
-        /// </summary>
-        /// <returns>The Physalis framework as string</returns>
-        public Framework Framework
-        {
-            get
-            {
-                return framework;
             }
         }
         #endregion
@@ -81,7 +68,7 @@ namespace Physalis.Framework
             try
             {
                 InitCache((string) this.Properties[PHYSALIS_DIR_PROP]);
-                framework = new Framework();
+                Framework.Instance.Intialize();
             }
             catch(Exception e)
             {

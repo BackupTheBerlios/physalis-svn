@@ -130,6 +130,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "BundleContext.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "BundleEventArgs.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -141,6 +146,11 @@
                 />
                 <File
                     RelPath = "BundleNamespaces.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Bundles.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -161,6 +171,11 @@
                 />
                 <File
                     RelPath = "Constants.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ExportedNamespace.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -215,6 +230,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "IExportedNamespace.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "IFilter.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -225,12 +245,12 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "InvalidSyntaxException.cs"
+                    RelPath = "INamespacesAdmin.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "IProperty.cs"
+                    RelPath = "InvalidSyntaxException.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -285,7 +305,27 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "NamespacesAdmin.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "ServiceEventArgs.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ServiceReference.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ServiceRegistration.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Services.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

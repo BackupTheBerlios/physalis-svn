@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Physalis.Utils;
+using Physalis.Specs.Framework;
 
 namespace Physalis.Framework
 {
@@ -141,7 +142,27 @@ namespace Physalis.Framework
             }
         }
 
-//        synchronized List checkResolve(Bundle bundle, IEnumerator pkgs) 
+        internal ICollection GetNamespacesProvidedBy(IBundle b) 
+        {
+            ArrayList res = new ArrayList();
+            for (IEnumerator i = namespaces.Values.GetEnumerator(); i.MoveNext();) 
+            {
+                Namespace p = (Namespace) i.Current;
+                if (p.Provider != null && (b == null || b == p.Provider.Bundle)) 
+                {
+                    res.Add(p.Provider);
+                }
+            }
+
+            return res;
+        }
+
+        internal bool IsProvider(NamespaceEntry pe) 
+        {
+            return pe.Namespace != null && pe.Namespace.Provider == pe;
+        }
+        
+        //        synchronized List checkResolve(Bundle bundle, IEnumerator pkgs) 
 //                          {
 //                              if (Debug.namespaces) 
 //                              {
@@ -208,18 +229,6 @@ namespace Physalis.Framework
     
     
         /**
-         * Check if NamespaceEntry is provider of a package.
-         *
-         * @param pe Exported package.
-         * @return True if pkg exports the package.
-         */
-//        synchronized bool isProvider(NamespaceEntry pe) 
-//                             {
-//                                 return pe.Namespace != null && pe.Namespace.provider == pe;
-//                             }
-    
-    
-        /**
          * Check if a package is in zombie state.
          *
          * @param pe Package to check.
@@ -270,26 +279,6 @@ namespace Physalis.Framework
 //                                return pe != null && pe.version.isSpecified() ? pe.version.toString() : null;
 //                            }
 
-
-        /**
-         * Get namespaces provide by bundle. If bundle is null, get all.
-         *
-         * @param b Bundle exporting namespaces.
-         * @return List of namespaces exported by bundle.
-         */
-//        synchronized Collection getPackagesProvidedBy(Bundle b) 
-//                                {
-//                                    ArrayList res = new ArrayList();
-//                                    for (IEnumerator i = namespaces.values().iterator(); i.MoveNext();) 
-//                                    {
-//                                        Namespace p = (Namespace) i.Current;
-//                                        if (p.provider != null && (b == null || b == p.provider.bundle)) 
-//                                        {
-//                                            res.add(p.provider);
-//                                        }
-//                                    }
-//                                    return res;
-//                                }
 
 
         /**

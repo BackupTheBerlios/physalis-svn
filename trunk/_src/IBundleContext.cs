@@ -23,7 +23,7 @@ namespace Physalis.Specs.Framework
 		/// returns <tt>null</tt> if the property is not found.
 		/// </summary>
 
-		IProperty Property
+		object this[string index]
 		{
 			get;
 		}
@@ -97,8 +97,9 @@ namespace Physalis.Specs.Framework
 		/// The location identifier string specified will be used as the identity 
 		/// of the bundle.
 		/// </summary>
-		
 		IBundle InstallBundle(string location, Stream source);
+
+        IBundle InstallBundle(string location);
         
 		/// <summary>
 		/// 

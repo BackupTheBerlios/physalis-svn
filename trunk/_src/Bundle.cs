@@ -14,6 +14,7 @@ namespace Physalis.Framework
         private Int32 id;
         private string location;
         private IBundleArchive archive;
+        protected IBundleContext context;
         #endregion
 
         #region --- Properties ---

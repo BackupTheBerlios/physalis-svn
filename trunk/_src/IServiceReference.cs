@@ -17,7 +17,7 @@ namespace Physalis.Specs.Framework
             get;
         }
 
-        IProperty Property
+        object this[string index]
         {
             get;
         }
