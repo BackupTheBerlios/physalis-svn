@@ -81,12 +81,6 @@
                     Private = "False"
                 />
                 <Reference
-                    Platform = "Pocket PC"
-                    Name = "OpenNETCF"
-                    AssemblyName = "OpenNETCF"
-                    Private = "False"
-                />
-                <Reference
                     Platform = "Pocket PC-Designer"
                     Name = "System.CF.Design"
                     AssemblyName = "System.CF.Design"
@@ -121,27 +115,12 @@
         <Files>
             <Include>
                 <File
-                    RelPath = "ABundle.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "AssemblyInfo.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "Bundle.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "BundleActivatorAttribute.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "BundleAdmin.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -167,16 +146,6 @@
                 />
                 <File
                     RelPath = "Constants.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "DllConfigurationSettings.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Framework.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -246,42 +215,12 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "Manifest.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
                     RelPath = "ServiceEventArgs.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
                     RelPath = "ServiceTransition.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Starter.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "StartLevel.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Storage.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "SystemBundle.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Tracer.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
