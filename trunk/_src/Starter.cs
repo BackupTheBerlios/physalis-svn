@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Specialized;
 using System.IO;
 using System.Reflection;
 using Physalis.Utils;
@@ -11,6 +12,11 @@ namespace Physalis.Framework
 	/// </summary>
 	public class Starter
 	{
+        #region --- Constants ---
+        public const string PHYSALIS_DIR_PROP = "Physalis.dir";
+        public const string PHYSALIS_DIR_DEF = "fwdir";
+        #endregion
+
         #region --- Fields ---
         private IDictionary properties;
         private ITracesOutput output;
@@ -68,16 +74,16 @@ namespace Physalis.Framework
         /// </summary>
         public void Start()
         {
-            Console.WriteLine("Physalis is starting...\r\n");
-            Console.WriteLine("Physalis framework, version {0}\nCopyright 2004 Physalis. All Rights Reserved.\n\nSee http://physalis.berlios.de for more information.\r\n", Version);
+            output.OutputTrace("Physalis is starting...");
+            output.OutputTrace(String.Format("Physalis framework, version {0}\nCopyright 2004 Physalis. All Rights Reserved.\n\nSee http://physalis.berlios.de for more information.", Version));
 
-            Console.WriteLine("Process configuration file...\r\n", Version);
+            output.OutputTrace("Process configuration file...");
             
-            //TODO: read properties
+            InitializeProperties();
 
             try
             {
-                InitCache("fwdir");
+                InitCache((string) this.Properties[PHYSALIS_DIR_PROP]);
                 new Framework();
             }
             catch(Exception e)
@@ -101,6 +107,15 @@ namespace Physalis.Framework
             }
 
             folder.Create();
+        }
+
+        /// <summary>
+        /// Initialize the Physalis properties.
+        /// </summary>
+        private void InitializeProperties()
+        {
+            properties = new ListDictionary();
+            properties.Add(PHYSALIS_DIR_PROP, PHYSALIS_DIR_DEF);
         }
     }
 }

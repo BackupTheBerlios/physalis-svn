@@ -13,8 +13,8 @@
                 AssemblyOriginatorKeyFile = ""
                 DelaySign = "false"
                 OutputType = "Library"
-                OutputFileFolder = "\Program Files\test"
-                RootNamespace = "Physalis"
+                OutputFileFolder = "\Program Files\Start"
+                RootNamespace = "Physalis.Framework"
                 StartupObject = ""
             >
                 <Platform Name = "Pocket PC" />
@@ -120,6 +120,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "Bundle.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "BundleActivatorAttribute.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -136,6 +141,11 @@
                 />
                 <File
                     RelPath = "BundleState.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "BundleStorage.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -180,7 +190,17 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "IBundleArchive.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "IBundleContext.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "IBundleStorage.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -235,7 +255,27 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "Namespace.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "NamespaceAttribute.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "NamespaceEntry.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "NamespaceEntryEnumeration.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Namespaces.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -251,6 +291,11 @@
                 />
                 <File
                     RelPath = "Starter.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Util.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

@@ -1,4 +1,6 @@
 using System;
+using System.IO;
+using Physalis.Framework.Storage;
 
 namespace Physalis.Framework
 {
@@ -7,11 +9,19 @@ namespace Physalis.Framework
 	/// </summary>
 	public class Framework
 	{
-		public Framework()
+        #region --- Constants ---
+        private const string DATA_STORAGE = "data";
+        #endregion
+
+        #region --- Fields ---
+        private IBundleStorage storage;
+        private DirectoryInfo data;
+        #endregion
+        
+        public Framework()
 		{
-			//
-			// TODO: Add constructor logic here
-			//
-		}
+            storage  = new BundleStorage();
+            data = new DirectoryInfo(DATA_STORAGE);
+        }
 	}
 }
