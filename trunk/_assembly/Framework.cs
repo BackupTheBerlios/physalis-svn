@@ -12,8 +12,13 @@ namespace Physalis.Framework
 	/// </summary>
 	class Framework
     {
+        #region --- Constant ---
+        private static readonly string BUNDLE_ROOT = "Bundle";    
+        #endregion
+
         #region --- Fields ---
         private Bundles bundles;
+        private DirectoryInfo cache;
         #endregion
 
         #region --- Singleton ---
@@ -28,14 +33,27 @@ namespace Physalis.Framework
                 return bundles;
             }
         }
+        internal DirectoryInfo Cache
+        {
+            get
+            {
+                return cache;
+            }
+            set
+            {
+                cache = value;
+            }
+        }
         #endregion
 
         private Framework()
 		{
         }
 
-        public void Start(string[] initials)
+        public void Start(string initial)
 		{
+            TracesProvider.TracesOutput.OutputTrace("Physalis framework cache: " + cache.FullName);
+
             if (bundles == null)
             {
                 bundles = new Bundles();
@@ -45,12 +63,9 @@ namespace Physalis.Framework
                 throw new InvalidOperationException("The framework is already started");
             }
 
-            foreach(string path in initials)
-            {
-                TracesProvider.TracesOutput.OutputTrace("Loading: " + path);
-                IBundle bundle = bundles.Add(path);
-                bundle.Start();
-            }
+            TracesProvider.TracesOutput.OutputTrace("Loading initial bundle: " + initial);
+            IBundle bundle = bundles.Add(initial, null);
+            bundle.Start();
         }
 
         public void Stop()
@@ -60,6 +75,15 @@ namespace Physalis.Framework
                 TracesProvider.TracesOutput.OutputTrace("Stopping: " + bundles[i].Location);
                 bundles[i].Stop();
             }
+        }
+
+        public IBundle Install(string location)
+        {
+            // Create the private storage folder for the bundle
+            DirectoryInfo folder = new DirectoryInfo(cache.FullName + Path.DirectorySeparatorChar + BUNDLE_ROOT + bundles.Count);
+
+            IBundle bundle = bundles.Add(location, folder);
+            return bundle;
         }
     }
 }

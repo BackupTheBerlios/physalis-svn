@@ -16,6 +16,7 @@ namespace Physalis.Framework
         private Int32 id;
         private Assembly assembly;
         private IBundleContext context;
+        private DirectoryInfo storage;
         #endregion
 
         #region --- Properties ---
@@ -86,9 +87,16 @@ namespace Physalis.Framework
                 this.assembly = value;
             }
         }
+        internal DirectoryInfo Storage
+        {
+            get
+            {
+                return storage;
+            }
+        }
         #endregion
 
-        internal Bundle(Int32 id, string location)
+        internal Bundle(Int32 id, string location, DirectoryInfo storage)
         {
             try
             {
@@ -102,6 +110,7 @@ namespace Physalis.Framework
                 throw new BundleException(e.Message, e);
             }
 
+            this.storage = storage;
             this.id = id;
             this.state = BundleState.Installed;
         }

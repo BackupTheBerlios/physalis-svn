@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Collections;
 using Physalis.Specs.Framework;
 
@@ -29,14 +30,37 @@ namespace Physalis.Framework
         {
             get
             {
-                return (IBundle) bundles[id];
+                return (bundles == null) ? null : (IBundle) bundles[id];
+            }
+        }
+        internal IBundle this[string location]
+        {
+            get
+            {
+                IBundle bundle = null;
+
+                if(bundles != null)
+                {
+                    ICollection all = bundles.Values;
+                    IEnumerator enumerator = all.GetEnumerator();
+                    while (enumerator.MoveNext())
+                    {
+                        if(((IBundle) enumerator.Current).Location.Equals(location))
+                        {
+                            bundle = (IBundle) enumerator.Current;
+                            break;
+                        }
+                    }
+                }
+
+                return bundle;
             }
         }
         internal ICollection All
         {
             get
             {
-                return bundles.Values;
+                return (bundles == null) ? null : bundles.Values;
             }
         }
         #endregion
@@ -46,13 +70,14 @@ namespace Physalis.Framework
         }
 
         /// <summary>
-        /// Create and add the new bundle to the list.
+        /// Create, install and add the new bundle to the list.
         /// </summary>
-        /// <param name="path"></param>
+        /// <param name="location">The location of the bundle object</param>
+        /// <param name="filepath">The path for the bundle private file storage</param>
         /// <returns>The new created bundle object</returns>
-        public IBundle Add(string path)
+        public IBundle Add(string location, DirectoryInfo storage)
         {
-            if((path == null) || path.Equals(""))
+            if((location == null) || (location.Equals("")))
             {
                 throw new ArgumentNullException();
             }
@@ -62,21 +87,20 @@ namespace Physalis.Framework
                 bundles = new Hashtable(10);
             }
 
-            // Create the bundle object
-            IBundle newBundle = new Bundle(bundles.Count, path);
-
-            // Verify there is no already bundle with the same location
-            ICollection all = bundles.Values;
-            IEnumerator enumerator = all.GetEnumerator();
-            while(enumerator.MoveNext())
+            // Null storage path is allowed only for the initial bundle
+            if((storage == null) && (bundles.Count > 0))
             {
-                IBundle bundle = (IBundle)enumerator.Current;
-                if (bundle.Location.Equals(newBundle.Location))
-                {
-                    throw new BundleException("A bundle has already been installed with the location: " + newBundle.Location);
-                }
+                throw new BundleException("Storage can't be null for non initial bundle");
             }
 
+            // Verify there is no already bundle with the same location
+            if(this[location] != null)
+            {
+                throw new BundleException("A bundle has already been installed with the location: " + location);
+            }
+
+            // Create the bundle object
+            IBundle newBundle = new Bundle(bundles.Count, location, storage);
             bundles.Add(newBundle.Id, newBundle);
             return newBundle;
         }

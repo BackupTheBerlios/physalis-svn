@@ -66,8 +66,17 @@
     <Compile Include="..\IBundleContext.cs">
       <Link>IBundleContext.cs</Link>
     </Compile>
+    <Compile Include="..\IServiceReference.cs">
+      <Link>IServiceReference.cs</Link>
+    </Compile>
+    <Compile Include="..\IServiceRegistration.cs">
+      <Link>IServiceRegistration.cs</Link>
+    </Compile>
     <Compile Include="..\ITracesOutput.cs">
       <Link>ITracesOutput.cs</Link>
+    </Compile>
+    <Compile Include="..\Service.cs">
+      <Link>Service.cs</Link>
     </Compile>
     <Compile Include="..\Starter.cs">
       <Link>Starter.cs</Link>
