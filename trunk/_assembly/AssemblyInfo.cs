@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 
 //
@@ -14,6 +15,7 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
+[assembly: CLSCompliantAttribute(true)]
 
 //
 // Version information for an assembly consists of the following four values:

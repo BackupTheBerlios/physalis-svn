@@ -11,46 +11,45 @@ namespace Physalis.Framework
 	/// Physalis assembly.
 	/// </summary>
 	class Framework
-	{
-		#region --- Singleton ---
+    {
+        #region --- Fields ---
+        private Bundles bundles;
+        #endregion
+
+        #region --- Singleton ---
 		public static readonly Framework Instance = new Framework();
 		#endregion
 
 		private Framework()
 		{
-		}
+        }
 
         public void Start(string[] initials)
 		{
-            Assembly assembly;
+            if (bundles == null)
+            {
+                bundles = new Bundles();
+            }
+            else
+            {
+                throw new InvalidOperationException("The framework is already started");
+            }
 
             foreach(string path in initials)
             {
                 TracesProvider.TracesOutput.OutputTrace("Loading: " + path);
-
-                // Build the assembly full path
-                string full = Path.GetFullPath(path);
-
-                // Load the assembly
-                AssemblyName uname = AssemblyName.GetAssemblyName(full);
-                assembly = AppDomain.CurrentDomain.Load(uname);
-
-                // Look for the activator attribute
-                BundleActivatorAttribute attr = (BundleActivatorAttribute)Attribute.GetCustomAttribute(assembly, typeof(BundleActivatorAttribute));
-                if (attr == null)
-                {
-                    TracesProvider.TracesOutput.OutputTrace("No activator found");
-                }
-                else
-                {
-                    TracesProvider.TracesOutput.OutputTrace("Activator found: " + attr.Activator);
-                }
-
-                // Create the activator instance
-                IBundleActivator activator = (IBundleActivator)assembly.CreateInstance(attr.Activator);
-                // Start the bundle
-                activator.Start();
+                IBundle bundle = bundles.Add(path);
+                bundle.Start();
             }
         }
-	}
+
+        public void Stop()
+        {
+            for (Int32 i = bundles.Count - 1; i > -1; i--)
+            {
+                TracesProvider.TracesOutput.OutputTrace("Stopping: " + bundles[i].Location);
+                bundles[i].Stop();
+            }
+        }
+    }
 }

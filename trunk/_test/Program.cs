@@ -13,10 +13,13 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            TracesProvider.Initialize(new TraceOutput("139.10.85.145", 6666));
+//            TracesProvider.Initialize(new TraceOutput("169.254.25.129", 6666));
+            TracesProvider.Initialize(new TraceOutput("192.168.0.2", 6666));
 
             string[] initials = new string[] {@".\Bundle.dll"};
             Starter.Start(initials);
+
+            Starter.Shutdown(0);
 
             TracesProvider.TracesOutput.OutputTrace("End");
         }

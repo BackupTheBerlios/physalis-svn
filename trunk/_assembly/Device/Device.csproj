@@ -58,11 +58,26 @@
     <Compile Include="..\AssemblyInfo.cs">
       <Link>AssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="..\Bundle.cs">
+      <Link>Bundle.cs</Link>
+    </Compile>
     <Compile Include="..\BundleActivatorAttribute.cs">
       <Link>BundleActivatorAttribute.cs</Link>
     </Compile>
+    <Compile Include="..\BundleException.cs">
+      <Link>BundleException.cs</Link>
+    </Compile>
+    <Compile Include="..\Bundles.cs">
+      <Link>Bundles.cs</Link>
+    </Compile>
+    <Compile Include="..\BundleState.cs">
+      <Link>BundleState.cs</Link>
+    </Compile>
     <Compile Include="..\Framework.cs">
       <Link>Framework.cs</Link>
+    </Compile>
+    <Compile Include="..\IBundle.cs">
+      <Link>IBundle.cs</Link>
     </Compile>
     <Compile Include="..\IBundleActivator.cs">
       <Link>IBundleActivator.cs</Link>

@@ -53,6 +53,8 @@ namespace Physalis.Framework
 
         static public void Shutdown(int exitcode)
         {
+            TracesProvider.TracesOutput.OutputTrace("Physalis is stopping...\n");
+            Framework.Instance.Stop();
         }
     }
 }
