@@ -100,7 +100,16 @@ namespace Physalis.Framework
         /// <param name="cache">The cache folder name.</param>
         private void InitCache(string cache)
         {
-            DirectoryInfo folder = new DirectoryInfo(cache);
+            // Get the application path
+            string path = System.IO.Path.GetDirectoryName(
+                System.Reflection.Assembly.GetCallingAssembly().GetName().CodeBase )
+                + Path.DirectorySeparatorChar + cache;
+
+#if DEBUG
+            Starter.Instance.Output.OutputTrace("Cache initialization: " + path);
+#endif 
+            
+            DirectoryInfo folder = new DirectoryInfo(path);
             if(folder.Exists)
             {
                 folder.Delete(true);
