@@ -4,4 +4,10 @@
     <ProjectView>ProjectFiles</ProjectView>
     <ProjectTrust>0</ProjectTrust>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <StartWorkingDirectory>D:\projects\Physalis\trunk\_bin\Desktop-Debug\</StartWorkingDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <StartWorkingDirectory>D:\projects\Physalis\trunk\_bin\Desktop-Release\</StartWorkingDirectory>
+  </PropertyGroup>
 </Project>

@@ -15,7 +15,8 @@ namespace Test
         {
             TracesProvider.Initialize(new TraceOutput("139.10.85.145", 6666));
 
-            Starter.Start();
+            string[] initials = new string[] {@".\Bundle.dll"};
+            Starter.Start(initials);
 
             TracesProvider.TracesOutput.OutputTrace("End");
         }

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopTest", "_test\Deskto
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceTest", "_test\DeviceTest\DeviceTest.csproj", "{178E2804-AF2E-40C8-BEE3-D8FB12421F6F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bundle", "_test\Bundle\Bundle.csproj", "{50D9CBF6-B32A-48D6-AAFB-1F513B2011D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Assembly debug|Any CPU = Assembly debug|Any CPU
@@ -83,6 +85,22 @@ Global
 		{178E2804-AF2E-40C8-BEE3-D8FB12421F6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{178E2804-AF2E-40C8-BEE3-D8FB12421F6F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{178E2804-AF2E-40C8-BEE3-D8FB12421F6F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{50D9CBF6-B32A-48D6-AAFB-1F513B2011D0}.Assembly debug|Any CPU.ActiveCfg = Release|Any CPU
+		{50D9CBF6-B32A-48D6-AAFB-1F513B2011D0}.Assembly debug|Any CPU.Build.0 = Release|Any CPU
+		{50D9CBF6-B32A-48D6-AAFB-1F513B2011D0}.Assembly Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50D9CBF6-B32A-48D6-AAFB-1F513B2011D0}.Assembly Release|Any CPU.Build.0 = Release|Any CPU
+		{50D9CBF6-B32A-48D6-AAFB-1F513B2011D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50D9CBF6-B32A-48D6-AAFB-1F513B2011D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50D9CBF6-B32A-48D6-AAFB-1F513B2011D0}.Desktop debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50D9CBF6-B32A-48D6-AAFB-1F513B2011D0}.Desktop debug|Any CPU.Build.0 = Debug|Any CPU
+		{50D9CBF6-B32A-48D6-AAFB-1F513B2011D0}.Desktop release|Any CPU.ActiveCfg = Debug|Any CPU
+		{50D9CBF6-B32A-48D6-AAFB-1F513B2011D0}.Desktop release|Any CPU.Build.0 = Debug|Any CPU
+		{50D9CBF6-B32A-48D6-AAFB-1F513B2011D0}.Device debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50D9CBF6-B32A-48D6-AAFB-1F513B2011D0}.Device debug|Any CPU.Build.0 = Debug|Any CPU
+		{50D9CBF6-B32A-48D6-AAFB-1F513B2011D0}.Device release|Any CPU.ActiveCfg = Debug|Any CPU
+		{50D9CBF6-B32A-48D6-AAFB-1F513B2011D0}.Device release|Any CPU.Build.0 = Debug|Any CPU
+		{50D9CBF6-B32A-48D6-AAFB-1F513B2011D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50D9CBF6-B32A-48D6-AAFB-1F513B2011D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

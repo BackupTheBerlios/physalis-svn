@@ -4,10 +4,10 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.40607</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{0F333A8E-309C-43EF-A1A8-CB424A0F09E7}</ProjectGuid>
+    <ProjectGuid>{50D9CBF6-B32A-48D6-AAFB-1F513B2011D0}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Physalis</RootNamespace>
-    <AssemblyName>Physalis</AssemblyName>
+    <RootNamespace>Bundle</RootNamespace>
+    <AssemblyName>Bundle</AssemblyName>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -29,31 +29,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TheActivator.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="..\AssemblyInfo.cs">
-      <Link>AssemblyInfo.cs</Link>
-    </Compile>
-    <Compile Include="..\BundleActivatorAttribute.cs">
-      <Link>BundleActivatorAttribute.cs</Link>
-    </Compile>
-    <Compile Include="..\Framework.cs">
-      <Link>Framework.cs</Link>
-    </Compile>
-    <Compile Include="..\IBundleActivator.cs">
-      <Link>IBundleActivator.cs</Link>
-    </Compile>
-    <Compile Include="..\ITracesOutput.cs">
-      <Link>ITracesOutput.cs</Link>
-    </Compile>
-    <Compile Include="..\Starter.cs">
-      <Link>Starter.cs</Link>
-    </Compile>
-    <Compile Include="..\TracesProvider.cs">
-      <Link>TracesProvider.cs</Link>
-    </Compile>
     <Compile Include="Properties\Resources.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
@@ -67,6 +48,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\_assembly\Desktop\Desktop.csproj">
+      <Project>{0F333A8E-309C-43EF-A1A8-CB424A0F09E7}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+      <Name>Desktop</Name>
+      <Private>False</Private>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
 </Project>

@@ -4,8 +4,4 @@
     <ProjectView>ProjectFiles</ProjectView>
     <ProjectTrust>0</ProjectTrust>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <StartProgram>D:\projects\Physalis\trunk\_bin\Desktop-Debug\Test.exe</StartProgram>
-    <StartAction>Program</StartAction>
-  </PropertyGroup>
 </Project>
