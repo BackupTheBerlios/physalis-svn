@@ -74,10 +74,10 @@ namespace Physalis.Framework
         /// </summary>
         public void Start()
         {
-            output.OutputTrace("Physalis is starting...");
-            output.OutputTrace(String.Format("Physalis framework, version {0}\nCopyright 2004 Physalis. All Rights Reserved.\n\nSee http://physalis.berlios.de for more information.", Version));
+            output.OutputTrace("Physalis is starting...\n");
+            output.OutputTrace(String.Format("Physalis framework, version {0}\nCopyright 2004 Physalis. All Rights Reserved.\nSee http://physalis.berlios.de for more information.\n", Version));
 
-            output.OutputTrace("Process configuration file...");
+            output.OutputTrace("Process configuration file...\n");
             
             InitializeProperties();
 
