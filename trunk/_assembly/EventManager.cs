@@ -15,7 +15,7 @@ namespace Physalis.Framework
         private static readonly object servicekey = new object();
         #endregion
 
-        #region --- Bundle event management ---
+        #region --- Event management ---
         internal static event BundleEventHandler BundleEvent
         {
             add
@@ -36,6 +36,7 @@ namespace Physalis.Framework
                 handler(null, e);
             }
         }
+
         internal static event ServiceEventHandler ServiceEvent
         {
             add

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Reflection;
+using Physalis.Specs.Framework;
 
 namespace Physalis.Framework
 {
@@ -10,16 +11,16 @@ namespace Physalis.Framework
     internal class Service
     {
         #region --- Fields ---
-        private Assembly assembly;
+        private IBundle bundle;
         private IList interfaces;
         #endregion
 
         #region --- Properties ---
-        internal Assembly Assembly
+        internal IBundle Bundle
         {
             get
             {
-                return assembly;
+                return bundle;
             }
         }
         #endregion

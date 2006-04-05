@@ -2,13 +2,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.40607</ProductVersion>
+    <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{E2A69273-9A03-4BA8-9612-666F961A51A0}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Test</RootNamespace>
     <AssemblyName>Test</AssemblyName>
     <WarningLevel>4</WarningLevel>
+    <StartupObject>Test.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,6 +35,9 @@
     </Compile>
     <Compile Include="..\Program.cs">
       <Link>Program.cs</Link>
+    </Compile>
+    <Compile Include="..\StdTraceOutput.cs">
+      <Link>StdTraceOutput.cs</Link>
     </Compile>
     <Compile Include="..\TraceOutput.cs">
       <Link>TraceOutput.cs</Link>

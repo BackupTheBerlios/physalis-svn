@@ -17,7 +17,7 @@ namespace Test
         {
 //            TracesProvider.Initialize(new TraceOutput("169.254.25.129", 6666));
 //            TracesProvider.Initialize(new TraceOutput("192.168.0.3", 6666));
-            TracesProvider.Initialize(new TraceOutput("139.10.85.145", 6666));
+            TracesProvider.Initialize(new StdTraceOutput());
 
             string appPath = System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase;
             string initial = new Uri(appPath).LocalPath;
